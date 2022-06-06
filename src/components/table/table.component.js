@@ -1,8 +1,33 @@
 import React from "react";
+import Loading from "../loading/loading.component";
 
 import "./table.styles.scss";
 
 const Table = ({ data }) => {
+
+  const renderTable = () => {
+    if (data === null) {
+      return <Loading marginTop="30px" />;
+    } else if (typeof data === "object" && data.length === 0) {
+      return "There's currently no data";
+    } else {
+      return (
+        <table cellPadding="0" cellSpacing="0" border="0">
+          <tbody>
+            {data.map((item, i) => {
+              return (
+                <tr key={i}>
+                  <td>{item.fullname}</td>
+                  <td>{item !== null && item.dateofbirth.slice(0, 10)} </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      );
+    }
+  };
+  
   return (
     <section>
       <h1>Fixed Table header</h1>
@@ -16,20 +41,7 @@ const Table = ({ data }) => {
           </thead>
         </table>
       </div>
-      <div className="tbl-content">
-        <table cellPadding="0" cellSpacing="0" border="0">
-          <tbody>
-            {data.map((item, i) => {
-              return (
-                <tr key={i}>
-                  <td>{item.fullname}</td>
-                  <td>{item.dateofbirth} </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+      <div className="tbl-content">{renderTable()}</div>
     </section>
   );
 };
