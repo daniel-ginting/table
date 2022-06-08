@@ -30,7 +30,6 @@ const Table = ({ data }) => {
   
   return (
     <section>
-      <h1>Fixed Table header</h1>
       <div className="tbl-header">
         <table cellPadding="0" cellSpacing="0" border="0">
           <thead>
