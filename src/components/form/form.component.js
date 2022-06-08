@@ -16,6 +16,7 @@ const Form = () => {
     fetch("https://agile-garden-36934.herokuapp.com/insert-student", {
       method: "post",
       headers: { "Content-Type": "application/json" },
+      mode: 'cors',
       body: JSON.stringify({
         fullname: name,
         dateofbirth: date,
