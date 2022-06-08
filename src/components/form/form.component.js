@@ -19,7 +19,7 @@ const Form = () => {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*",
       },
-      // mode: "no-cors",
+      mode: "cors",
       body: JSON.stringify({
         fullname: name,
         dateofbirth: date,
