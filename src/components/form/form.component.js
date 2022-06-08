@@ -15,8 +15,11 @@ const Form = () => {
   const onSubmit = () => {
     fetch("https://agile-garden-36934.herokuapp.com/insert-student", {
       method: "post",
-      headers: { "Content-Type": "application/json" },
-      mode: 'no-cors',
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      // mode: "no-cors",
       body: JSON.stringify({
         fullname: name,
         dateofbirth: date,
