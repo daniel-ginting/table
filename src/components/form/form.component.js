@@ -13,7 +13,10 @@ const Form = () => {
   };
 
   const onSubmit = () => {
-    fetch("https://agile-garden-36934.herokuapp.com/insert-student", {
+    fetch(
+      "https://agile-garden-36934.herokuapp.com/insert-student"
+      // "http://localhost:3000/insert-student"
+      , {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -22,7 +25,8 @@ const Form = () => {
         fullname: name,
         dateofbirth: date,
       }),
-    }).then(() => window.location.reload());
+    })
+    .then(() => window.location.reload());
   };
 
   return (
