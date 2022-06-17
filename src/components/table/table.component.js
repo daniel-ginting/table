@@ -1,10 +1,11 @@
 import React from "react";
 import Loading from "../loading/loading.component";
 
+
 import "./table.styles.scss";
+import TableColumn from "../table-column/table-column.component";
 
 const Table = ({ data }) => {
-
   const renderTable = () => {
     if (data === null) {
       return <Loading marginTop="30px" />;
@@ -16,10 +17,7 @@ const Table = ({ data }) => {
           <tbody>
             {data.map((item, i) => {
               return (
-                <tr key={i}>
-                  <td>{item.fullname}</td>
-                  <td>{item !== null && item.dateofbirth.slice(0, 10)} </td>
-                </tr>
+                <TableColumn item={item} key={i}/>
               );
             })}
           </tbody>
@@ -27,7 +25,7 @@ const Table = ({ data }) => {
       );
     }
   };
-  
+
   return (
     <section>
       <div className="tbl-header">
@@ -37,6 +35,7 @@ const Table = ({ data }) => {
             <tr>
               <th>Fullname</th>
               <th>Date of Birth</th>
+              <th style={{width: '5%'}}></th>
             </tr>
           </thead>
         </table>
