@@ -28,7 +28,6 @@ const Table = ({ data, loading, setLoading }) => {
       <div className="tbl-header">
         <table cellPadding="0" cellSpacing="0" border="0">
           <thead>
-            {console.log(data)}
             <tr>
               <th>Fullname</th>
               <th>Date of Birth</th>
