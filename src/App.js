@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Table from "./components/table/table.component";
 import Form from "./components/form/form.component";
 import AuthForm from "./components/auth-form/auth-form.component";
