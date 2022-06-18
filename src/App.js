@@ -9,14 +9,14 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [route, setRoute] = useState("form");
 
-  useEffect(() => {
-    fetch("https://agile-garden-36934.herokuapp.com/students")
-      // fetch("http://localhost:3000/students")
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("https://agile-garden-36934.herokuapp.com/students")
+  //     // fetch("http://localhost:3000/students")
+  //     .then((res) => res.json())
+  //     .then((res) => {
+  //       setData(res);
+  //     });
+  // }, []);
 
   const submitHandler = (code) => {
     console.log(code)
@@ -35,6 +35,7 @@ function App() {
       .then((res) => res.json())
       .then((res) => {
         if (typeof res === "object") {
+          setData(res);
           setRoute("authenticated");
         }
       });
