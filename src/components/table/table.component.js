@@ -1,13 +1,12 @@
 import React from "react";
 import Loading from "../loading/loading.component";
 
-
 import "./table.styles.scss";
 import TableColumn from "../table-column/table-column.component";
 
-const Table = ({ data }) => {
+const Table = ({ data, loading, setLoading }) => {
   const renderTable = () => {
-    if (data === null) {
+    if (data === null || loading) {
       return <Loading marginTop="30px" />;
     } else if (typeof data === "object" && data.length === 0) {
       return "There's currently no data";
@@ -16,9 +15,7 @@ const Table = ({ data }) => {
         <table cellPadding="0" cellSpacing="0" border="0">
           <tbody>
             {data.map((item, i) => {
-              return (
-                <TableColumn item={item} key={i}/>
-              );
+              return <TableColumn item={item} key={i} setLoading={setLoading}/>;
             })}
           </tbody>
         </table>
@@ -35,7 +32,7 @@ const Table = ({ data }) => {
             <tr>
               <th>Fullname</th>
               <th>Date of Birth</th>
-              <th style={{width: '5%'}}></th>
+              <th style={{ width: "5%" }}></th>
             </tr>
           </thead>
         </table>

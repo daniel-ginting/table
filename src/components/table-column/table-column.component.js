@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ReactComponent as Delete } from "../../assets/delete.svg";
 
-const TableColumn = ({ item }) => {
+const TableColumn = ({ item, setLoading }) => {
   const [isHover, setIsHover] = useState(false);
 
   const onMouseEnterHandler = () => {
@@ -13,9 +13,10 @@ const TableColumn = ({ item }) => {
   };
 
   const onDeleteHandler = () => {
+    setLoading(true)
     fetch(
       "https://agile-garden-36934.herokuapp.com/delete-student",
-    //   "http://localhost:3000/delete-student",
+      // "http://localhost:3000/delete-student",
       {
         method: "delete",
         headers: {

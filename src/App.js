@@ -5,6 +5,7 @@ import Form from "./components/form/form.component";
 
 function App() {
   const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetch("https://agile-garden-36934.herokuapp.com/students")
@@ -15,10 +16,10 @@ function App() {
       });
   }, []);
   return (
-    <div className="App">
+    <div className="App" style={{ cursor: loading ? "progress" : "default" }}>
       <h1>Students List</h1>
-      <Form/>
-      <Table data={data} />
+      <Form setLoading={setLoading}/>
+      <Table data={data} setLoading={setLoading} loading={loading}/>
     </div>
   );
 }

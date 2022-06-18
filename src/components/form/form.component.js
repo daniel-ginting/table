@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = () => {
+const Form = ({ setLoading }) => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
 
@@ -13,19 +13,21 @@ const Form = () => {
   };
 
   const onSubmit = () => {
+    setLoading(true);
     fetch(
-      "https://agile-garden-36934.herokuapp.com/insert-student"
-      // "http://localhost:3000/insert-student"
-      , {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        fullname: name,
-        dateofbirth: date,
-      }),
-    })
+      "https://agile-garden-36934.herokuapp.com/insert-student",
+      // "http://localhost:3000/insert-student",
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullname: name,
+          dateofbirth: date,
+        }),
+      }
+    )
     .then(() => window.location.reload());
   };
 
@@ -44,7 +46,10 @@ const Form = () => {
           name="dateofbirth"
           placeholder="Enter date of birth"
         />
-        <button type="submit" onClick={onSubmit}>
+        <button
+          type="submit"
+          onClick={onSubmit}
+        >
           Add Student
         </button>
       </fieldset>
