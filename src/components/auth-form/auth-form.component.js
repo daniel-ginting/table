@@ -6,7 +6,6 @@ const AuthForm = ({ submitHandler }) => {
   const [code, setCode] = useState("");
 
   const onChangeHandler = (event) => {
-    console.log(event.target.value)
     setCode(event.target.value);
   };
 

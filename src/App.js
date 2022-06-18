@@ -19,7 +19,6 @@ function App() {
   // }, []);
 
   const submitHandler = (code) => {
-    console.log(code)
     fetch(
       "https://agile-garden-36934.herokuapp.com/students", 
       // "http://localhost:3000/students",
