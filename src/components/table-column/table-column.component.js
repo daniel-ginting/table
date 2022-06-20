@@ -15,7 +15,7 @@ const TableColumn = ({ item, setLoading }) => {
   const onDeleteHandler = () => {
     setLoading(true)
     fetch(
-      "https://agile-garden-36934.herokuapp.com/delete-student",
+      "https://students-list-server.herokuapp.com/delete-student",
       // "http://localhost:3000/delete-student",
       {
         method: "delete",

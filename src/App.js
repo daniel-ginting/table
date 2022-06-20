@@ -20,7 +20,7 @@ function App() {
 
   const submitHandler = (code) => {
     fetch(
-      "https://agile-garden-36934.herokuapp.com/students", 
+      "https://students-list-server.herokuapp.com/students", 
       // "http://localhost:3000/students",
       {
       method: "post",

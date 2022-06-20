@@ -15,7 +15,7 @@ const Form = ({ setLoading }) => {
   const onSubmit = () => {
     setLoading(true);
     fetch(
-      "https://agile-garden-36934.herokuapp.com/insert-student",
+      "https://students-list-server.herokuapp.com/insert-student",
       // "http://localhost:3000/insert-student",
       {
         method: "post",
